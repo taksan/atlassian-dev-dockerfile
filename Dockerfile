@@ -26,3 +26,8 @@ RUN adduser --ingroup builder --uid 1001 builder
 RUN mkdir /opt/cached_m2
 RUN chown -R 1001:1001 /opt/cached_m2
 COPY --chown=builder --from=base /tmp/.m2 /opt/cached_m2
+RUN apt install -y curl 
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
+RUN apt install -y nodejs
+RUN npm install -g yarn
+

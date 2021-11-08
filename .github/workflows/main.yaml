@@ -1,0 +1,15 @@
+name: release
+on:
+  push:
+    branches: [ main]
+env:
+  LANG: "en_GB.UTF-8"
+  TZ: "America/Sao_Paulo"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: taksan/atlas-sdk-m2:8.2.2
+      options: --user 1001
+    steps:
+      - run: find /opt/cached_m2
